@@ -1,4 +1,6 @@
 {
-	"host": "mocking-json.azurewebsites.net",
-	"port": 443
+	"port": 443,
+	"host": "mocking-json.scm.azurewebsites.net",
+	"watch": "db.json",
+	"config": "json-server.json"
 }
