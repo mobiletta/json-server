@@ -2,7 +2,7 @@
   "name": "json-server",
   "version": "0.12.0",
   "description": "Serves JSON files through REST routes.",
-  "main": "./lib/server/index.js",
+  "main": "./src/dist/server/index.js",
   "bin": "./bin/index.js",
   "directories": {
     "test": "test"
@@ -44,7 +44,6 @@
     "eslint-plugin-prettier": "^2.1.2",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "gulp-bundle-assets": "^2.28.0",
     "husky": "^0.14.3",
     "markdown-toc": "^0.13.0",
     "mkdirp": "^0.5.1",
@@ -56,7 +55,8 @@
     "server-ready": "^0.3.1",
     "standard": "^8.3.0",
     "supertest": "^3.0.0",
-    "temp-write": "^2.1.0"
+    "temp-write": "^2.1.0",
+    "webpack": "^3.5.2"
   },
   "scripts": {
     "test": "npm run test:cli && npm run test:server && eslint .",
@@ -64,14 +64,15 @@
     "test:server": "cross-env NODE_ENV=test mocha test/server/*.js",
     "start": "babel-node src/cli/bin",
     "format": "eslint . --fix",
-    "build": "babel src -d lib --copy-files",
+    "build": "babel src -d src/dist --copy-files",
     "toc": "markdown-toc -i README.md",
     "prepublishOnly": "npm run build && pkg-ok",
-    "precommit": "npm test"
+    "precommit": "npm test",
+    "dev": "webpack && npm start"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/typicode/json-server.git"
+    "url": "git://github.com/mobiletta/json-server.git"
   },
   "keywords": [
     "JSON",
@@ -89,12 +90,12 @@
     "dummy",
     "sandbox"
   ],
-  "author": "Typicode <typicode@gmail.com>",
+  "author": "Mobiletta <x@mobiletta.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/typicode/json-server/issues"
+    "url": "https://github.com/mobiletta/json-server/issues"
   },
-  "homepage": "https://github.com/typicode/json-server",
+  "homepage": "https://mobiletta.com",
   "engines": {
     "node": ">=4"
   }
