@@ -59,13 +59,16 @@
     "webpack": "^3.5.2"
   },
   "scripts": {
+    "test": "npm run test:cli && npm run test:server && eslint .",
+    "test:cli": "npm run build && cross-env NODE_ENV=test mocha test/cli/*.js",
+    "test:server": "cross-env NODE_ENV=test mocha test/server/*.js",
     "start": "babel-node src/cli/bin",
     "format": "eslint . --fix",
-    "build": "babel src -d src/dist --copy-files",
+    "build": "babel src -d lib --copy-files",
     "toc": "markdown-toc -i README.md",
-    "prepublishOnly": "npm run build && pkg-ok",
-    "precommit": "npm test",
-    "dev": "webpack && npm start"
+    "smoke": "npm run build && pkg-ok",
+    "precommit": "npm test"
+    "package" : "webkit && npm run build"
   },
   "repository": {
     "type": "git",
