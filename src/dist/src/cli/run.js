@@ -14,7 +14,7 @@ var jsonServer = require('../server');
 
 function prettyPrint(argv, object, rules) {
   var host = argv.host === '0.0.0.0' ? 'localhost' : argv.host;
-  var port = argv.port;
+  var port = (process.env.PORT || argv.port);
   var root = `http://${host}:${port}`;
 
   console.log();
@@ -143,7 +143,7 @@ module.exports = function (argv) {
 
       // Create app and server
       app = createApp(source, data, routes, middlewares, argv);
-      server = app.listen(argv.port, argv.host);
+      server = app.listen((process.env.PORT || argv.port), argv.host);
 
       // Enhance with a destroy function
       enableDestroy(server);

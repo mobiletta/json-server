@@ -93,7 +93,6 @@
     "url": "https://github.com/mobiletta/json-server/issues"
   },
   "homepage": "https://mobiletta.com",
-  "engines": {
-    "node": ">=4"
+  "engines": { "node": ">=6.9.1" }
   }
 }
